@@ -1,0 +1,30 @@
+class Solution {
+    bool chk(int n){
+        if(n==1)return false;
+        for(int i=2;i<=sqrt(n);i++){
+            if(n%i==0)return false;
+            
+            }
+        return true;
+        }
+public:
+    int maximumPrimeDifference(vector<int>& v) {
+        int n=v.size();
+        int l,r,m;
+        l=r=m=0;
+        l=-1;
+        while(r<n){
+            if(chk(v[r])){
+                if(l==-1){
+                    l=r;
+                    }
+                else{
+                    m=max(m,abs(r-l));
+                    }
+                }
+            r++;
+            }
+        return m;
+            
+    }
+};

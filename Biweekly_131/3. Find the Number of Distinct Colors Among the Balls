@@ -1,0 +1,28 @@
+    vector<int> queryResults(int limit, vector<vector<int>>& v) {
+     int n=v.size();
+        unordered_map<int,int>m1,m2;
+        int a,b;
+        vector<int>ans(n);
+        for(int i=0;i<n;i++){
+          a=v[i][0];
+            b=v[i][1];
+            if(m1.find(a)!=m1.end()){
+                m2[m1[a]]--;
+                if(m2[m1[a]]==0){
+                    m2.erase(m1[a]);
+                }
+                m1[a]=b;
+                m2[b]++;
+                ans[i]=m2.size();
+                
+            }
+            else{
+                m1[a]=b;
+                m2[b]++;
+            }
+            ans[i]=m2.size();
+            
+        }
+        return ans;
+        
+    }

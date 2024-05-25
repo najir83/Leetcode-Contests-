@@ -1,0 +1,19 @@
+ int duplicateNumbersXOR(vector<int>& nums) {
+        vector<int>tem;
+        int n=nums.size();
+        
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(nums[i]==nums[j]){
+                    tem.push_back(nums[i]);
+                    break;
+                }
+            }
+        }
+        if(tem.size()==0)return 0;
+        int x=0;
+        for(auto it:tem){
+            x^=it;
+        }
+        return x;
+    }

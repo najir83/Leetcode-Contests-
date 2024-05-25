@@ -1,0 +1,17 @@
+ vector<int> occurrencesOfElement(vector<int>& a, vector<int>& b, int x) {
+        vector<int>v;
+        
+        int n=a.size();
+        for(int i=0;i<n;i++){
+            if(a[i]==x)v.push_back(i);
+        }
+        int m=v.size();
+        int k=b.size();
+        vector<int>tem(k,-1);
+        for(int i=0;i<k;i++){
+            if(b[i]>m)continue;
+            
+            tem[i]=v[b[i]-1];
+        }
+        return tem;
+    }
